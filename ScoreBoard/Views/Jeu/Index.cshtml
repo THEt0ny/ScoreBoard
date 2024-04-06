@@ -1,0 +1,55 @@
+﻿@using ScoreBoard.Models;
+@model IEnumerable<ScoreBoard.Models.Jeu>
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-outline-primary" asp-controller="Jeu" asp-action="Nouveau">Nouveau jeu</a>
+</p>
+<table class="table w-100">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateSortie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScoreJoueur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateEnregistrement)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateSortie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScoreJoueur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEnregistrement)
+            </td>
+            <td class="d-flex flex-lg-row justify-content-center">
+                <a class="btn btn-primary m-1" asp-controller="Jeu" asp-action="Modifier" asp-route-jeuId="@item.Id">Edit</a> |
+                <a class="btn btn-danger m-1" asp-controller="Jeu" asp-action="Supprimer" asp-route-jeuId="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

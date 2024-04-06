@@ -8,4 +8,8 @@
 
 @*TODO: Complétez cette vue de façon à  
         confirmer ou annuler la supression*@
+<div class="container text-center">
+    <a class="btn btn-primary" asp-area="" asp-controller="Joueur" asp-action="SupprimerJoueur" asp-route-joueurId="@Model.Id">Confirmer</a>
+    <a class="btn btn-danger" asp-area="" asp-controller="Joueur" asp-action="Index">Annuler</a>
+</div>
 
