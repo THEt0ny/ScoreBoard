@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ScoreBoard.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ScoreBoard.Controllers
 {
@@ -12,6 +14,7 @@ namespace ScoreBoard.Controllers
             this.joueurRepository = joueurRepository;
         }
 
+        [Authorize]
         public IActionResult Index()
         {
             List<Joueur> listeJoueurs = this.joueurRepository.ListeJoueurs;
